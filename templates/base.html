@@ -70,7 +70,7 @@ https://templatemo.com/tm-569-edu-meeting
                       <ul class="nav">
                         <li><a href="/" class="active">Home</a></li>
                         <li><a href="/courses" > All Courses</a></li>
-                        <li><a href="">FT Courses</a></li>
+                        <li><a href="/ft-courses">FT Courses</a></li>
                         <li><a href="index.html">Contact Us</a></li>
                         <!-- <li class="has-sub">
                             <a href="javascript:void(0)">Pages</a>
@@ -92,6 +92,8 @@ https://templatemo.com/tm-569-edu-meeting
   </header>
     {% block main-content %} {% endblock main-content %}
     {% block courses-content %} {% endblock courses-content %}
+    {% block ft-content %} {% endblock ft-content %}
+
 
 
 
@@ -222,6 +224,7 @@ https://templatemo.com/tm-569-edu-meeting
         $(window).scroll(function () {
           checkSection();
         });
+
     </script>
 </body>
 

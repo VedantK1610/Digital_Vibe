@@ -7,3 +7,6 @@ def index(request):
 
 def courses(request):
     return render(request,"courses.html")
+
+def ft_courses(request):
+    return render(request,"fameux-courses.html")
