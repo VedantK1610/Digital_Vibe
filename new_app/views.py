@@ -38,3 +38,6 @@ def ft_courses(request):
 
 def about_us(request):
     return render(request,"about-us.html")
+
+def bca_course(request):
+    return render(request,"course_pages/BCA.html")

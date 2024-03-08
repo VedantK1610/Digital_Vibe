@@ -1457,7 +1457,7 @@ heading page
 ---------------------------------------------
 */
 
-section.heading-page,section.heading-page2 {
+section.heading-page,section.heading-page2,section.heading-BCA {
   background-image: url(../images/heading-bg.jpg);
   background-position: center center;
   background-repeat: no-repeat;
@@ -1469,8 +1469,11 @@ section.heading-page,section.heading-page2 {
 section.heading-page2{
   background-image: url(../images/fameux.jpg);
 }
+section.heading-BCA{
+  background-image: url(https://img.pikbest.com/backgrounds/20200703/education-and-training-drawing-childlike-black-poster-background-map_2752662.jpg!w700wp);
+}
 
-section.heading-page h6,section.heading-page2 h6 {
+section.heading-page h6,section.heading-page2 h6,section.heading-BCA h6 {
   margin-top: 0px;
   font-size: 15px;
   text-transform: uppercase;
@@ -1479,7 +1482,7 @@ section.heading-page h6,section.heading-page2 h6 {
   letter-spacing: 1px;
 }
 
-section.heading-page h2,section.heading-page2 h2 {
+section.heading-page h2,section.heading-page2 h2,section.heading-BCA h2{
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 36px;
@@ -1574,12 +1577,25 @@ section.meetings-page .pagination ul li a:hover {
 
 
 .meeting-single-item .thumb {
-  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.row.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.meeting-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .meeting-single-item .thumb img {
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
 }
 
 .meeting-single-item .thumb .price {
@@ -1599,9 +1615,7 @@ section.meetings-page .pagination ul li a:hover {
 
 .meeting-single-item .down-content {
   background-color: #fff;
-  padding: 40px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  flex-shrink: 0;
 }
 
 .meeting-single-item .thumb .date {
@@ -1688,7 +1702,9 @@ section.meetings-page .pagination ul li a:hover {
 
 /* Meeting item column */
 .templatemo-item-col {
-	width: 31%;
+  flex: 1;
+  margin-bottom: 15px; /* Add margin to create space between cards */
+  height: 400px;
 }
 
 @media (max-width: 992px) {
