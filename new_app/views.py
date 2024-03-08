@@ -35,3 +35,6 @@ def contact_email(request):
 
 def ft_courses(request):
     return render(request,"fameux-courses.html")
+
+def about_us(request):
+    return render(request,"about-us.html")
