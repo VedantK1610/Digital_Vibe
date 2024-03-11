@@ -233,7 +233,33 @@ https://templatemo.com/tm-569-edu-meeting
           checkSection();
         });
 
-    </script>
+  // Wait for the document to be ready
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize Isotope
+    var $grid = $('.grid').isotope({
+      itemSelector: '.templatemo-item-col',
+      layoutMode: 'fitRows',
+    });
+
+    // Filter items on button click
+    $('.filters ul li').on('click', function () {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+
+      // Hide all sections
+      $('.perticular-page .row > div').hide();
+
+      // Show the selected section
+      $('.' + filterValue).show();
+    });
+
+    // Change active class on click
+    $('.filters ul li').on('click', function () {
+      $('.filters ul li').removeClass('active');
+      $(this).addClass('active');
+    });
+  });
+</script>
 </body>
 
 </body>
