@@ -14,20 +14,152 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="/static/css/fontawesome.css">
     <link rel="stylesheet" href="/static/css/templatemo-edu-meeting.css">
     <link rel="stylesheet" href="/static/css/owl.css">
     <link rel="stylesheet" href="/static/css/lightbox.css">
-<!--
 
-TemplateMo 569 Edu Meeting
-
-https://templatemo.com/tm-569-edu-meeting
-
--->
+    <style>
+      .swiper-container-wrapper--timeline .swiper-slide {
+        display: flex;
+        background: #fff;
+        height: auto;
+        min-height: 300px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-slide .container {
+        margin-bottom: 20px;
+        width: 100%;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-slide .title {
+        font-size: 18px;
+        opacity: 0;
+        transition: 0.5s ease 0.5s;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-slide-active .title {
+        opacity: 1;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-progressbar {
+        position: relative;
+        margin-bottom: 70px;
+        background-color: transparent;
+        height: 4px;
+        border-bottom: 1px solid #888;
+        width: 75%;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-progressbar-fill {
+        background-color: #000;
+        height: 3px;
+        top: 2px;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-progressbar:before {
+        position: absolute;
+        top: 2px;
+        left: -100%;
+        width: 100%;
+        height: 3px;
+        background-color: #000;
+        content: "";
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-progressbar:after {
+        position: absolute;
+        top: 3px;
+        right: -100%;
+        width: 100%;
+        height: 1px;
+        background-color: #888;
+        content: "";
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-custom {
+        position: relative;
+        list-style: none;
+        margin: 1rem 0;
+        padding: 0;
+        display: flex;
+        line-height: 1.66;
+        bottom: 0;
+        z-index: 11;
+        width: 75%;
+        display: flex;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-switch {
+        position: relative;
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        display: block;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-switch .switch-title {
+        position: absolute;
+        font-weight: 400;
+        right: 0;
+        transform: translateX(50%);
+        transition: 0.2s all ease-in-out;
+        transition-delay: 0s;
+        cursor: pointer;
+        z-index: 1;
+        
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-switch.active .switch-title {
+        font-weight: 400;
+        transition-delay: 0.4s;
+        color: #888;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-switch.active .switch-title:after {
+        background: white;
+        width: 25px;
+        height: 25px;
+        transition-delay: 0.4s;
+        color: #fff;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-switch .switch-title:after {
+        position: absolute;
+        top: calc(100% + 19px);
+        right: 50%;
+        transform: translateX(50%) translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: white;
+        border-radius: 2rem;
+        content: "";
+        transition: 0.2s all ease-in-out;
+        transition-delay: 0s;
+        z-index: 1;
+        color: #fff;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-switch ~ .swiper-pagination-switch .switch-title {
+        color: white;
+        font-weight: 16px;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-switch ~ .swiper-pagination-switch.active .switch-title {
+        color: #888;
+      }
+  
+      .swiper-container-wrapper--timeline .swiper-pagination-switch ~ .swiper-pagination-switch.active .switch-title:after {
+        background: #888;
+        color: white;
+      }
+    </style>
   </head>
 
 <body>
@@ -123,7 +255,7 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="col-lg-4">
                     <fieldset>
                       <select name="course-select" id="course-select" class="course-select" required="">
-                        <option value="" disabled selected>Select your course...</option>
+                        <option value="" disabled selected>SELECT YOUR COURSE...</option>
                         <option value="BSC">BSC</option>
                         <option value="MSC">MSC</option>
                         <option value="diploma">Diploma</option>
@@ -260,6 +392,55 @@ https://templatemo.com/tm-569-edu-meeting
     });
   });
 </script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var mySwiper = new Swiper(".swiper", {
+          autoHeight: true,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+          },
+          speed: 500,
+          direction: "horizontal",
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            type: "progressbar"
+          },
+          loop: false,
+          effect: "slide",
+          spaceBetween: 30,
+          on: {
+            init: function () {
+              document.querySelectorAll(".swiper-pagination-custom .swiper-pagination-switch").forEach(function (el) {
+                el.classList.remove("active");
+              });
+              document.querySelector(".swiper-pagination-custom .swiper-pagination-switch:first-child").classList.add("active");
+            },
+            slideChangeTransitionStart: function () {
+              document.querySelectorAll(".swiper-pagination-custom .swiper-pagination-switch").forEach(function (el) {
+                el.classList.remove("active");
+              });
+              document.querySelector(".swiper-pagination-custom .swiper-pagination-switch[data-index='" + mySwiper.realIndex + "']").classList.add("active");
+            }
+          }
+        });
+  
+        document.querySelectorAll(".swiper-pagination-custom .swiper-pagination-switch").forEach(function (el) {
+          el.addEventListener("click", function () {
+            mySwiper.slideTo(el.dataset.index);
+            document.querySelectorAll(".swiper-pagination-custom .swiper-pagination-switch").forEach(function (el) {
+              el.classList.remove("active");
+            });
+            el.classList.add("active");
+          });
+        });
+      });
+    </script>
 </body>
 
 </body>
