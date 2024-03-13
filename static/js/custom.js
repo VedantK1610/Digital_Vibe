@@ -14,6 +14,24 @@
 	  }
 	});
 	
+	$(document).ready(function () {
+		// Set default active filter when the page loads
+		// $('.filters ul li').addClass('active');
+	  
+		var data = $('.filters ul li').attr('data-filter');
+		$grid.isotope({
+			filter: data
+		});
+	});
+	
+	var $grid = $(".grid").isotope({
+		itemSelector: ".all",
+		percentPosition: true,
+		masonry: {
+			columnWidth: ".all"
+		}
+	});
+
 	$('.filters ul li').click(function(){
         $('.filters ul li').removeClass('active');
         $(this).addClass('active');

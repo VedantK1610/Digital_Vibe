@@ -200,10 +200,10 @@
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                        <li><a href="/" class="active">Home</a></li>
-                        <li><a href="/courses" > All Courses</a></li>
-                        <li><a href="/ft-courses">FT Courses</a></li>
-                        <li><a href="/aboutus">about us</a></li>
+                        <li><a href="/" class="{% if request.path == '/' %} active {% endif %}">Home</a></li>
+                        <li><a href="/courses" class="{% if request.path == '/courses/' %} active {% endif %}"> All Courses</a></li>
+                        <li><a href="/ft-courses" class="{% if request.path == '/ft-courses/' %} active {% endif %}">FT Courses</a></li>
+                        <li><a href="/aboutus" class="{% if request.path == '/aboutus/' %} active {% endif %}">about us</a></li>
                         <!-- <li><a href="index.html">Contact Us</a></li> -->
                         <!-- <li class="has-sub">
                             <a href="javascript:void(0)">Pages</a>
@@ -283,20 +283,20 @@
             <ul>
               <li>
                 <h6>Phone Number</h6>
-                <span></span>
+                <span>08815924443</span>
               </li>
               <li>
                 <h6>Email Address</h6>
-                <span></span>
+                <span>info@digitaleducationvibe.com</span>
               </li>
               <li>
-                <h6>Street Address</h6>
-                <span></span>
+                <h6>Address</h6>
+                <span>Indore</span>
               </li>
-              <li>
+              <!-- <li>
                 <h6>Website URL</h6>
                 <span></span>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
